@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "CertCheck",
+  "version": "1.0",
+  "description": "Verifies the certificates of downloaded signed PE files.",
+  "background": {
+    "service_worker": "/background-update.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "/popup.html",
+    "default_icon": {
+      "16": "/logo16.png",
+      "32": "/logo32.png"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src *; style-src * 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval'; connect-src https://* data: blob: filesystem:;"
+  },
+  "host_permissions": [
+    "https://certificatekeyextractor36541998745.azurewebsites.net/*",
+    "*://*/"
+  ],
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "scripting",
+    "downloads",
+    "downloads.open",
+    "notifications"
+  ]
+}
